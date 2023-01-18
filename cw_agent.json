@@ -1,0 +1,33 @@
+{
+    "metrics": {
+        "namespace": "custom_proc_monitor",
+        "aggregation_dimensions": [
+            [
+                    "InstanceId"
+            ]
+        ],
+        "append_dimensions": {
+            "InstanceId": "${aws:InstanceId}"
+        },
+        "metrics_collected": {
+            "procstat": [
+                {
+                    "exe": "sqlservr",
+                    "measurement": [
+                        "pid",
+                        "memory_vms",
+                        "memory_rss"
+                    ]
+                },
+                {
+                    "exe": "SQLAGENT",
+                    "measurement": [
+                            "pid",
+                            "memory_vms",
+                            "memory_rss"
+                    ]
+                }
+            ]
+        }
+    }
+}
